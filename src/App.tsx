@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Header } from "./componenets/Header";
+import { Feed } from "./componenets/Feed";
+import { UserProfile } from "./componenets/UserProfile";
+
+
+const names = [{ name:"Taleen"},
+            {name: "Eiman"},
+            {name: "Nadeen"}]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="lg:flex lg:justify-center">
+
+<div className="grid grid-cols-1 lg:grid lg:grid-cols-2 md:bg-purple-400 md:flex md:justify-center">
+    <div className="lg-col-span-1">
+    <Header />
+    <Feed />
+  </div>
+  <div className="hidden lg:inline-block lg-col-span-1">
+    {names?.map((item) =>{
+      return <UserProfile name={item.name} />
+    })}
+    
     </div>
+  </div>
+</div>
+    
+  
   );
 }
 
